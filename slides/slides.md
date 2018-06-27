@@ -1,5 +1,5 @@
 # Træfik <!-- .element: style="margin-left:-5px"-->
-### The could Native Edge Router <!-- .element: style="margin-left:-5px"-->
+### The Cloud Native Edge Router <!-- .element: style="margin-left:-5px"-->
 
 ![Traefik](./slides/images/traefik.logo.horizontal.bright.svg) <!-- .element: style="border:none;margin-bottom:-10px" -->
 
