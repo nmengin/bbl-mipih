@@ -142,7 +142,6 @@ Note:
 ## Træfik versions
 
 * Træfik camembert (2016/11) <!-- .element: style=" margin-left:-400px"-->
-  * Cluster mode
   * Swarm Mode
   * Generic Mesos
   * Basic Authentication (Global)
@@ -152,7 +151,6 @@ Note:
   * Eureka
   * Prometheus
   * Healthcheks
-  * Traefik bug
 
 ![Features](./slides/images/traefik-morbier.png) <!-- .element: style="float: right; width: 25%; margin-top: -620px; margin-right:-150px"-->
 
@@ -165,15 +163,13 @@ Note:
 * Træfik raclette (2017/05)<!-- .element: style=" margin-left:-400px"-->
   * **Rancher (MetaData)**
   * Basic Authentication (Frontend)
-  * DynamoDB
   * DashBoard Filter
 * Træfik roquefort (2017/10) <!-- .element: style=" margin-top:20px; margin-left:-400px"-->
   * GRPC
   * Auth Forward
   * Custom Error Pages
-  * DataDog & StatD
+  * DataDog & StatsD
   * Proxy Protocol
-  * Images Multi Arch...
 
 ![Features](./slides/images/traefik-raclette.svg) <!-- .element: style=" float: right; width: 23%;  margin-top: -600px; margin-right:-125px"-->
 ![Features](./slides/images/traefik-roquefort.svg) <!-- .element: style=" float: right; width: 30%;  margin-top: -250px; margin-right:-150px"-->
@@ -187,7 +183,6 @@ Note:
   * Dynamic TLS certificates
   * Custom Headers
   * Service Fabric
-  * ACME HTTP-01 challenge
 * Træfik Tête de Moine (2018/05)<!-- .element: style=" margin-left:-400px"-->
   * Let's Encrypt wildcards
   * Open Tracing
@@ -204,13 +199,15 @@ Note:
 
 Note:
 
+# Make demo in FireFox
+
 ---
 
 ## Let's focus on...
 
 * Rancher Integration
 * Security
-* Metrics and Tracing
+* Tracing and Metrics
 
 ---
 ## What about Rancher?
@@ -218,11 +215,12 @@ Note:
 * Support from Træfik V1.2
 * API and MetaData
 * One contributor from Rancher
-* Rancher V2.0 => WIP
 * 2 ways to use Træfik
   * Træfik image in Rancher Catalog
   * Thanks to docker-compose service
+* Rancher V2.0 => WIP <!-- .element: class="fragment" data-fragment-index="1" -->
 
+![Features](./slides/images/r2_twitter.png) <!-- .element: style="border:none; float: center; width: 50%; height:250px; margin-top: 0;" class="fragment" data-fragment-index="1"-->
 -
 
 ## Let's talk about Security...
@@ -231,12 +229,12 @@ Note:
 * Statically provided certificates <!-- .element: style="margin-left: -150px" class="fragment" data-fragment-index="2" -->
 * Dynamically provided certificates <!-- .element: style="margin-left: -150px"  class="fragment" data-fragment-index="3" -->
   * File and KV store <!-- .element:  class="fragment" data-fragment-index="3" -->
+  * Kubernetes secrets <!-- .element:  class="fragment" data-fragment-index="3" -->
 * Let's Encrypt certificates <!-- .element: style="margin-left: -150px"  class="fragment" data-fragment-index="4" -->
-  * Challenges DNS and HTTP <!-- .element: class="fragment" data-fragment-index="5" -->
-  * Dynamic <!-- .element: class="fragment" data-fragment-index="5" -->
-  * Renewed automatically <!-- .element: class="fragment" data-fragment-index="5" -->
-  * Stored in file or KV store <!-- .element: class="fragment" data-fragment-index="5" -->
-  * Wildcards <!-- .element: class="fragment" data-fragment-index="5" -->
+  * Challenges DNS and HTTP <!-- .element: class="fragment" data-fragment-index="4" -->
+  * Dynamic <!-- .element: class="fragment" data-fragment-index="4" -->
+  * Renewed automatically <!-- .element: class="fragment" data-fragment-index="4" -->
+  * Wildcards <!-- .element: class="fragment" data-fragment-index="4" -->
 
 <div style="float: right; width: 40%; margin-top: -450px; margin-right: -200px" data-fragment-index="1" class="fragment">
 <div data-fragment-index="2" class="fragment fade-out" >
@@ -279,7 +277,7 @@ entryPoints = ["https"]
 ```
 </div>
 </div>
-<div style="float: right; width: 40%; margin-top: -250px; margin-right: -200px" data-fragment-index="5" class="fragment">
+<div style="float: right; width: 40%; margin-top: -300px; margin-right: -200px" data-fragment-index="4" class="fragment">
 ```toml
 [entryPoints]
   [entryPoints.http]
@@ -305,16 +303,19 @@ Note:
 
 ## Metrics and Tracing
 
-* Metrics <!-- .element: style="margin-top: 40px" class="fragment" data-fragment-index="1" -->
-  * Prometheus (+ Grafana) <!-- .element: class="fragment" data-fragment-index="1" -->
-  * DataDog, StatD <!-- .element: class="fragment" data-fragment-index="1" -->
-  * Predefined data (requests, backends)  <!-- .element: class="fragment" data-fragment-index="1" -->
-  * Official Grafana configuration  <!-- .element: class="fragment" data-fragment-index="1" -->
-* Open Tracing <!-- .element: style="margin-top: 20px;" class="fragment" data-fragment-index="2" -->
-  * Jaeger, ZipKin <!-- .element: class="fragment" data-fragment-index="2" -->
-  * Predefined spans (retry, authentication...) <!-- .element: class="fragment" data-fragment-index="2" -->
+
+* Open Tracing <!-- .element: style="margin-top: 20px;" class="fragment" data-fragment-index="1" -->
+  * Jaeger, ZipKin <!-- .element: class="fragment" data-fragment-index="1" -->
+  * Predefined spans (retry, authentication...) <!-- .element: class="fragment" data-fragment-index="1" -->
+* Metrics <!-- .element: style="margin-top: 40px" class="fragment" data-fragment-index="2" -->
+  * Predefined data (requests, backends)  <!-- .element: class="fragment" data-fragment-index="2" -->
+  * Prometheus, DataDog, StatsD <!-- .element: class="fragment" data-fragment-index="2" -->
+  * + Grafana (Official Grafana configuration)  <!-- .element: class="fragment" data-fragment-index="2" -->
 
 Note:
+
+* http://rancher.containous.cloud:8080
+* 159.89.29.103
 
 ---
 
